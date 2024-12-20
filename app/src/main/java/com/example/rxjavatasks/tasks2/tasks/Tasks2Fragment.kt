@@ -1,11 +1,12 @@
 package com.example.rxjavatasks.tasks2.tasks
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.example.rxjavatasks.R
 import com.example.rxjavatasks.databinding.FragmentTasks2Binding
 import com.example.rxjavatasks.tasks2.network.ApiClient
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -35,22 +36,25 @@ class Tasks2Fragment : Fragment() {
         initTasks(arguments?.getString(BUTTON_ID))
     }
 
-    /**
-     * Задание сделать сетевой запрос и отобразить результат на экране
-     * */
+/**
+* Задание сделать сетевой запрос и отобразить результат на экране
+* */
     private fun makeNetworkRequest() {
         val result = apiService.getNumberOfCharacters()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
+            .doFinally { goneProgressBar() }
             .subscribe(
                 { success ->
-                    Log.d("myTag", success.info.count.toString())
+                    binding.networkTextView.apply {
+                        visibility = View.VISIBLE
+                        text = getString(R.string.characters, success.info.count.toString())
+                    }
                 },
                 { error ->
-                    Log.d("myTag", error.message.toString())
+                    Toast.makeText(requireContext(), error.message.toString(), Toast.LENGTH_SHORT).show()
                 }
             )
-
         disposable.add(result)
     }
 
@@ -62,6 +66,10 @@ class Tasks2Fragment : Fragment() {
             EDIT_TEXT -> {}
             TWO_SERVERS -> {}
         }
+    }
+
+    private fun goneProgressBar() {
+        binding.progressBar.visibility = View.GONE
     }
 
     override fun onDestroyView() {

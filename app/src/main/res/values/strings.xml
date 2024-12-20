@@ -6,4 +6,5 @@
     <string name="Recycler">Recycler</string>
     <string name="edit_text">Edit text</string>
     <string name="two_servers">Two servers</string>
+    <string name="characters">Всего персонажей: %1$s</string>
 </resources>
