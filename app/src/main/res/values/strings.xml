@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">RxJavaTasks</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="network_request">Network Request</string>
+    <string name="timer">Timer</string>
+    <string name="Recycler">Recycler</string>
+    <string name="edit_text">Edit text</string>
+    <string name="two_servers">Two servers</string>
+</resources>
