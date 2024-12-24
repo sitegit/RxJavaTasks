@@ -7,4 +7,6 @@
     <string name="edit_text">Edit text</string>
     <string name="two_servers">Two servers</string>
     <string name="characters">Всего персонажей: %1$s</string>
+    <string name="position_characters">Позиция персонажа: %1$s</string>
+    <string name="text_hint">Введите текст</string>
 </resources>

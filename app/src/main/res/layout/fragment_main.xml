@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".tasks2.MainFragment">
+    tools:context=".tasks2.other.MainFragment">
 
     <Button
         android:id="@+id/networkRequest"

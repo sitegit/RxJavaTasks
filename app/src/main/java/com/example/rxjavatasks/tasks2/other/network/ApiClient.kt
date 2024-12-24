@@ -1,4 +1,4 @@
-package com.example.rxjavatasks.tasks2.network
+package com.example.rxjavatasks.tasks2.other.network
 
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
